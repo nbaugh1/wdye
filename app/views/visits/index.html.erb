@@ -1,0 +1,3 @@
+<% @visits.each do |visit| %>
+    <%= link_to "#{visit.description}", visit_path(visit) %><br>
+<% end %>
