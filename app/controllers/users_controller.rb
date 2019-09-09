@@ -12,7 +12,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to user_path(@user)
+    if @user
+      redirect_to user_path(@user)
+    else
+      redirect_to new
+    end
+
   end
 
   def edit
@@ -21,6 +26,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :password, :password_confirmation, :email)
   end
 end
