@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   def index 
+    @users = User.all
   end
 
   def show 
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new 
@@ -11,7 +12,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-
     redirect_to user_path(@user)
   end
 
