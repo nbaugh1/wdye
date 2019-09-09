@@ -14,3 +14,9 @@
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
+
+ body {
+    background-image:url("172.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
