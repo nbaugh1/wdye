@@ -31,7 +31,10 @@
 /config/master.key
 
 # Ignore notes 
-/NOTES.md
+NOTES.md
 
 # Igonore gitignore
 /.gitignore
+
+# Ignore .env file
+.env
