@@ -32,3 +32,6 @@
 
 # Ignore notes 
 /NOTES.md
+
+# Igonore gitignore
+/.gitignore
