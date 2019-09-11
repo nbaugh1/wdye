@@ -14,8 +14,9 @@ class VisitsController < ApplicationController
 
   def create
     @visit = Visit.create(visit_params)
+    @visit.user_id = current_user.id
+    @visit.save
     
-
     redirect_to visit_path(@visit)
   end
 

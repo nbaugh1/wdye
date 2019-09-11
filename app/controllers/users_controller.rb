@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show 
     if logged_in?
       @user = User.find(params[:id])
+      @visits = Visit.all
     else
       redirect_to '/login'
     end

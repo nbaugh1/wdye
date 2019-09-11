@@ -1,1 +1,20 @@
-<%= @user.username %>
+<br>
+<br>
+<div class="row align-items-center h-100">
+    <div class="col-12 mx-auto">
+        <div class="card h-100 justify-content-center">
+            <table class="table">
+                <tbody>
+                    <% @visits.each do |visit| %>
+                        <% if visit.user_id == current_user.id %>
+                            <tr>
+                                <td>Created: <%= visit.created_at %></td>
+                                <td>Visit Details: <%= visit.description %></td>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    /div>
+</div>
