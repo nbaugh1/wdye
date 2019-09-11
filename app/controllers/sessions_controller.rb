@@ -2,26 +2,28 @@ class SessionsController < ApplicationController
   helper_method :logged_in?, :current_user
 
   def new
-    if logged_in?
-      redirect_to user_path(current_user)
-    end
+    @user = User.new
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
-      redirect_to user_path(user)
+    @user = User.find_by(username: params[:user][:username])
+    if @user
+      authenticated = @user.authenticate(params[:user][:password])
+      if authenticated
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        redirect_to login_path
+      end
     else
-      flash[:danger] = "Wrong email and/or password"
-      render :new
+      redirect_to login_path
     end
   end
 
   def destroy
     if logged_in?
       session.clear
-      redirect_to '/'
+      redirect_to '/login'
     else
       redirect_back(fallback_location: root_path)
     end

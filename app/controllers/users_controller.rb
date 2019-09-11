@@ -4,15 +4,23 @@ class UsersController < ApplicationController
   end
 
   def show 
-    @user = User.find(params[:id])
+    if logged_in?
+      @user = User.find(params[:id])
+    else
+      redirect_to '/login'
+    end
   end
 
-  def new 
+  def new
+    @user = User.new
   end
 
   def create
     @user = User.create(user_params)
+
     if @user
+      flash[:notify] = "New Account Created.\nLogging in..."
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       redirect_to new
@@ -21,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-   end
+  end
 
   private
 
