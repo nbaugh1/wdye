@@ -6,11 +6,17 @@ class User < ApplicationRecord
   has_many :visits
   has_many :restaurants, through: :visits
 
-  def self.create_from_omniauth(auth)
-    # Creates a new user only if it doesn't exist
-    where(email: auth.info.email).first_or_initialize do |user|
-      user.username = auth.info.name
-      user.email = auth.info.email
+  def self.find_or_create_by_omniauth(auth)
+    @user = User.find_by(email: auth["info"]["email"])
+    if @user 
+      @user.update(uid: auth["uid"])
+    else
+      @user = User.find_or_create_by(uid: auth["uid"]) do |u|
+        u.email = auth["info"]["email"]
+        u.username = auth["info"]["name"]
+        u.password = SecureRandom.hex
+      end
     end
+    @user
   end
 end
