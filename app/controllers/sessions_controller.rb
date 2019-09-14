@@ -19,7 +19,8 @@ class SessionsController < ApplicationController
         redirect_to user_path(@user)
       end
     else
-      redirect_to login_path
+      
+      render :new
     end
   end
 

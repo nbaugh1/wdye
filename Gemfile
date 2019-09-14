@@ -42,6 +42,7 @@ gem 'omniauth-oauth2'
 gem 'jquery-rails'
 gem 'bootstrap', '~>4.0.0'
 gem 'pry'
+gem 'http'
 
 gem 'dotenv-rails', groups: [:development, :test]
 

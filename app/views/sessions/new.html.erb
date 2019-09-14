@@ -4,6 +4,7 @@
         <div class="card card-signin my-5 text-center">
           <div class="card-body">
             <h5 class="card-title">Login</h5><br>
+            
             <%= form_for @user, url: login_path do |f| %>
                <%= f.label :username, "Username: " %>
                <%= f.text_field :username %><br>
