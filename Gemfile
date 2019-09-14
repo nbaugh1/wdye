@@ -41,9 +41,7 @@ gem 'jwt'
 gem 'omniauth-oauth2'
 gem 'jquery-rails'
 gem 'bootstrap', '~>4.0.0'
-gem 'pry'
 gem 'http'
-
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
@@ -59,6 +57,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'awesome_print'
+  gem 'pry'
 end
 
 group :test do

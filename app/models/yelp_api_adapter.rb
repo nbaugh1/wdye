@@ -7,7 +7,7 @@ class YelpApiAdapter
   BUSINESS_PATH = "/v3/businesses/"  # trailing / because we append the business id to the path
   API_KEY = ENV["YELP_API_KEY"]
 
-  DEFAULT_BUSINESS_ID = "yelp-san-francisco"
+  DEFAULT_BUSINESS_ID = "ypqK8DWM8Bcs43YveSJnNw"
   DEFAULT_TERM = "dinner"
   DEFAULT_LOCATION = "New York, NY"
   SEARCH_LIMIT = 5

@@ -1,24 +1,22 @@
 <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5 text-center">
-          <div class="card-body">
-            <h5 class="card-title">Login</h5><br>
-            
-            <%= form_for @user, url: login_path do |f| %>
-               <%= f.label :username, "Username: " %>
-               <%= f.text_field :username %><br>
-               <%= f.label :password, "Password: " %>
-               <%= f.password_field :password %><br><br>
-              
-               <%= f.submit "Log In", :class => "btn-outline-primary" %><br><br>
-              
-
-               
-            <% end %>
-            <a href="<%= root_path %>">BACK</a>
-          </div>
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5 text-center">
+        <div class="card-body">
+          <h5 class="card-title">Login</h5>
+          <br>
+          <%= form_for @user, url: login_path do |f| %>
+            <%= f.label :username, "Username: " %>
+            <%= f.text_field :username %><br>
+            <%= f.label :password, "Password: " %>
+            <%= f.password_field :password %><br>
+            <br>
+            <%= f.submit "Log In", :class => "btn-outline-primary" %><br>
+            <br>
+          <% end %>
+          <a href="<%= root_path %>">BACK</a>
         </div>
       </div>
     </div>
   </div>
+</div>
