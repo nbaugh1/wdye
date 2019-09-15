@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :sessions
   resources :visits
   resources :restaurants
-  resources :users
+  resources :users do
+    resources :visits
+  end
+
   
 end
