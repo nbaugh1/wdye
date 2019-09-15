@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = find_or_create_from_yelp(params)
     @restaurant.save
-    redirect_to restaurants_path
+
   end
 
   def edit
@@ -25,9 +25,18 @@ class RestaurantsController < ApplicationController
 
   def find_or_create_from_yelp(params)
     yelp_result = YelpApiAdapter.search(params[:restaurant][:name])[0]
-    restaurant = Restaurant.new do |u|
-      u.name = yelp_result["name"]
-      u.location = yelp_result["location"]["display_address"]
+    restaurant = Restaurant.find_by(yelp_id: yelp_result["id"])
+    if restaurant
+      session[:restaurant_id] = restaurant.id
+      redirect_to restaurants_path
+    else
+      restaurant = Restaurant.new do |r|
+        r.name = yelp_result["name"]
+        r.location = yelp_result["location"]["display_address"]
+        r.yelp_id = yelp_result["id"]
+        r.save
+      end
+      redirect_to restaurants_path
     end
     restaurant
   end
