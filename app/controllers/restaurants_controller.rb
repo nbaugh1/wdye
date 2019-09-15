@@ -1,4 +1,7 @@
 class RestaurantsController < ApplicationController
+  
+  helper_method :create_from_yelp
+
   def index
   end
 
@@ -11,11 +14,22 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.create(restaurant_params)
+    @restaurant = create_from_yelp(params)
+    @restaurant.save
     redirect_to restaurant_path(@restaurant)
   end
 
   def edit
+  end
+
+  def create_from_yelp(params)
+    yelp_result = YelpApiAdapter.search(params[:restaurant][:name])[0]
+    restaurant = Restaurant.new do |u|
+      u.name = yelp_result["name"]
+      u.neighborhood = yelp_result["location"]["city"]
+    end
+    binding.pry
+    restaurant
   end
 
   private
