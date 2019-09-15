@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = find_create_from_yelp(params)
+    @restaurant = find_or_create_from_yelp(params)
     @restaurant.save
     redirect_to restaurants_path
   end

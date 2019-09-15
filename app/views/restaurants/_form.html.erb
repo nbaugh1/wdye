@@ -4,11 +4,12 @@
         <%= f.text_field :name %><br>
     </div>
     
-    <%# <div> %>
-        <%# <%= f.label :neighborhood, 'Restaurant Location: '%> %>
-        <%# <%= f.text_field :neighborhood %><br> %>
-    <%# </div> %>
     <div>
-        <%= f.submit "Create", :class => "btn-outline-primary" %><br>
+        <%= f.label :location, 'Restaurant Location: ' %>
+        <%= f.text_field :location %><br>
+    </div>
+    <div>
+        <%= f.submit "Create", :class => "btn-outline-danger" %>
+        <button type="submit" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
     </div>
 <% end%>

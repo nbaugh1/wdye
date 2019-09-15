@@ -1,6 +1,7 @@
 <br>
 <br>
 <h4>Welcome <%= @user.username %>!</h4>
+<%= link_to "New Visit", new_user_visit_path(@user) %>
 <div class="row align-items-center h-100">
     <div class="col-12 mx-auto">
         <div class="card h-100 justify-content-center">
