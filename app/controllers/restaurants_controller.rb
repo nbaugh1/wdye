@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
   helper_method :create_from_yelp
 
   def index
+    @restaurants = Restaurant.all 
   end
 
   def show
@@ -16,7 +17,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = create_from_yelp(params)
     @restaurant.save
-    redirect_to restaurant_path(@restaurant)
+    redirect_to restaurants_path
   end
 
   def edit
@@ -26,15 +27,14 @@ class RestaurantsController < ApplicationController
     yelp_result = YelpApiAdapter.search(params[:restaurant][:name])[0]
     restaurant = Restaurant.new do |u|
       u.name = yelp_result["name"]
-      u.neighborhood = yelp_result["location"]["city"]
+      u.location = yelp_result["location"]["display_address"]
     end
-    binding.pry
     restaurant
   end
 
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :cuisine, :neighborhood)
+    params.require(:restaurant).permit(:name, :cuisine, :location)
   end
 end
