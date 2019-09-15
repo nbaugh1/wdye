@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :username, :email, presence: true, uniqueness: true
 
   has_many :visits
-  has_many :restaurants, through: :visits
+  has_many :restaurants, :through => :visits
 
   def self.find_or_create_by_omniauth(auth)
     @user = User.find_by(email: auth["info"]["email"])

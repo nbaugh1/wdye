@@ -16,8 +16,6 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = find_or_create_from_yelp(params)
-    @restaurant.save
-
   end
 
   def edit
@@ -28,7 +26,7 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.find_by(yelp_id: yelp_result["id"])
     if restaurant
       session[:restaurant_id] = restaurant.id
-      redirect_to restaurants_path
+      redirect_to new_visit_path
     else
       restaurant = Restaurant.new do |r|
         r.name = yelp_result["name"]
@@ -36,7 +34,8 @@ class RestaurantsController < ApplicationController
         r.yelp_id = yelp_result["id"]
         r.save
       end
-      redirect_to restaurants_path
+      session[:restaurant_id] = restaurant.id
+      redirect_to new_visit_path
     end
     restaurant
   end

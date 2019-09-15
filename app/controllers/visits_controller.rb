@@ -9,13 +9,21 @@ class VisitsController < ApplicationController
   end
 
   def new
-    @visit = Visit.new(user_id: params[:user_id])
+    @user = User.new
+    @visit = Visit.new(user_id: current_user.id)
+    if current_restaurant
+      @restaurant = current_restaurant
+      @visit.restaurant_id = @restaurant.id
+    else
+      @restaurant = Restaurant.new
+    end
   end
 
   def create
     @visit = Visit.create(visit_params)
-    # @visit.user_id = current_user.id
+    binding.pry
     @visit.save
+    session[:restaurant_id] = nil
     
     redirect_to visit_path(@visit)
   end
@@ -27,6 +35,6 @@ class VisitsController < ApplicationController
   private
 
   def visit_params
-    params.require(:visit).permit(:visit_date, :description, :user_id)
+    params.require(:visit).permit(:visit_date, :description, :user_id, :restaurant_id)
   end
 end

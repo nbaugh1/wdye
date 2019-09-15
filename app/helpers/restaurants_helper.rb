@@ -1,3 +1,3 @@
 module RestaurantsHelper
-  
+    
 end
