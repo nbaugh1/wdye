@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   get '/auth/google_oauth2/callback' => 'sessions#create'
   get '/auth/failure' => 'welcome#index'
+  get '/users/:id/visits' => 'users#visits_index'
 
   resources :sessions
   resources :visits

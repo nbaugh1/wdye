@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = create_from_yelp(params)
+    @restaurant = find_create_from_yelp(params)
     @restaurant.save
     redirect_to restaurants_path
   end
@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
-  def create_from_yelp(params)
+  def find_or_create_from_yelp(params)
     yelp_result = YelpApiAdapter.search(params[:restaurant][:name])[0]
     restaurant = Restaurant.new do |u|
       u.name = yelp_result["name"]

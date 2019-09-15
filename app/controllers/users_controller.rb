@@ -27,6 +27,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def visits_index
+    @user = User.find(params[:id])
+    @visits = @user.visits
+    render 'visits/index'
+  end
+
   def edit
   end
 
