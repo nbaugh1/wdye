@@ -6,25 +6,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Restaurants
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/restaurants/new">New Restaurant</a>
+          <a class="dropdown-item" href="<%= restaurants_path %>">View All Restaurants</a>
           <a class="dropdown-item" href="#">Edit a Restaurant (TO DO)</a>
-          <a class="dropdown-item" href="/restaurants/index">View All Restaurants (TO DO)</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="/restaurants/new">Create a New Restaurant</a>
         </div>
       </li>
       <li>
-        <a class="btn btn-outline-success" href="<%= new_user_visit_path(current_user) %>">New Visit</a>
+        <a class="btn btn-outline-success" href="<%= new_user_visit_path(current_user) %>">Record a New Visit</a>
       </li>
     </ul>
     <a href="/logout"><button class="btn btn-outline-danger my-2 my-sm-0" type="logout">Logout</button></a>

@@ -3,7 +3,7 @@
 <% if session[:restaurant_id] == nil %> 
     Find a restaurant on Yelp: <%= render 'restaurants/button_to_add_from_yelp_modal' %>
 <% else %>
-    <%=  @restaurant.name %>    
+    <%=  @restaurant.name %> <%= @restaurant.location %>   
     <%= render "form" %> 
 <% end %>
 
