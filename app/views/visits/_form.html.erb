@@ -1,17 +1,13 @@
-
-
 <%= form_for @visit do |f| %>
-    
-    <div>
-        <%= f.label :visit_date, 'Visit Date:'%>
-        <%= f.text_field :visit_date %>
-    </div>
-    
-    <div>
-        <%= f.label :description, 'Visit Description:'%>
-        <%= f.text_area :description %>
-    </div>
-    <%= f.hidden_field :user_id %>
-    <%= f.hidden_field :restaurant_id %>
-    <%= f.submit "Create" %>
+  <div>
+    <%= f.label :visit_date, 'Visit Date:'%>
+    <%= f.text_field :visit_date %>
+  </div>
+  <div>
+    <%= f.label :description, 'Visit Description:'%>
+    <%= f.text_area :description %>
+  </div>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :restaurant_id %>
+  <%= f.submit "Create" %>
 <% end %>

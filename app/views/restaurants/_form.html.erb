@@ -1,15 +1,14 @@
 <%= form_for @restaurant do |f| %>
-    <div>
-        <%= f.label :name, 'Restaurant Name: '%>
-        <%= f.text_field :name %><br>
-    </div>
-    
-    <div>
-        <%= f.label :location, 'Restaurant Location: ' %>
-        <%= f.text_field :location %><br>
-    </div>
-    <div>
-        <%= f.submit "Create", :class => "btn-outline-danger" %>
-        <button type="submit" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-    </div>
+  <div>
+    <%= f.label :name, 'Restaurant Name: '%>
+    <%= f.text_field :name %><br>
+  </div>
+  <div>
+    <%= f.label :location, 'Restaurant Location: ' %>
+    <%= f.text_field :location %><br>
+  </div>
+  <div>
+    <%= f.submit "Create", :class => "btn-outline-danger" %>
+    <button type="submit" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+  </div>
 <% end%>

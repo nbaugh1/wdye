@@ -1,9 +1,8 @@
 class RestaurantsController < ApplicationController
-  
   helper_method :create_from_yelp
 
   def index
-    @restaurants = Restaurant.all 
+    @restaurants = Restaurant.all
   end
 
   def show

@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
-  def index 
+  def index
     @users = User.all
   end
 
-  def show 
+  def show
     if logged_in?
       @user = User.find(params[:id])
       @visits = Visit.all
     else
-      redirect_to '/login'
+      redirect_to "/login"
     end
   end
 
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.id == nil 
+    if @user.id == nil
       @errors = @user.errors.full_messages
       render :new
     else
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def visits_index
     @user = User.find(params[:id])
     @visits = @user.visits
-    render 'visits/index'
+    render "visits/index"
   end
 
   def edit

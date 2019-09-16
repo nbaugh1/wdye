@@ -2,34 +2,32 @@
 <br>
 <div class="card text-center">
   <div class="card-header">
-    <h4>Welcome <%= @user.username %>!</h4>    
+    <h4>Welcome <%= @user.username %>!</h4>
   </div>
   <div class="card-body">
     <h5 class="card-title">Where Did You Eat?</h5>
     <p class="card-text">Click the button bellow to make a record of your visit to a restaurant. (This app searches Yelp)</p>
     <div class="btn btn-outline-primary">
-        <%= link_to "Record a New Visit", new_user_visit_path(@user) %>
+      <%= link_to "Record a New Visit", new_user_visit_path(@user) %>
     </div>
   </div>
 </div>
-
 <div class="row align-items-center h-100">
-    <div class="col-12 mx-auto">
-        <div class="card h-100 justify-content-center">
-            <table class="table">
-                <tbody>
-                    <% @visits.each do |visit| %>
-                        <% if visit.user_id == current_user.id %>
-                            <tr>
-                                <td>Created: <%= visit.created_at %></td>
-                                <td>Restaurant: <%= link_to visit.restaurant.name, restaurant_path(visit.restaurant.id) %></td>
-                                <td>Visit Details: <%= visit.description %></td>
-                            </tr>
-                        <% end %>
-                    <% end %>
-                </tbody>
-            </table>
-        </div>
+  <div class="col-12 mx-auto">
+    <div class="card h-100 justify-content-center">
+      <table class="table">
+        <tbody>
+          <% @visits.each do |visit| %>
+            <% if visit.user_id == current_user.id %>
+              <tr>
+                <td>Created: <%= visit.created_at %></td>
+                <td>Restaurant: <%= link_to visit.restaurant.name, restaurant_path(visit.restaurant.id) %></td>
+                <td>Visit Details: <%= visit.description %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
-

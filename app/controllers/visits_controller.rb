@@ -1,7 +1,6 @@
 class VisitsController < ApplicationController
-
   def index
-    @visits = Visit.all 
+    @visits = Visit.all
   end
 
   def show
@@ -27,9 +26,8 @@ class VisitsController < ApplicationController
   end
 
   def edit
-    
-  end 
-   
+  end
+
   def destroy
     @visit = Visit.find([:id])
     @visit.destroy

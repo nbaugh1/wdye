@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   def self.find_or_create_by_omniauth(auth)
     @user = User.find_by(email: auth["info"]["email"])
-    if @user 
+    if @user
       @user.update(uid: auth["uid"])
     else
       @user = User.find_or_create_by(uid: auth["uid"]) do |u|

@@ -1,18 +1,18 @@
 <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5 text-center">
-          <div class="card-body">
-            <h5 class="card-title text-center">Sign Up</h5>
-            <% if @user.errors.any? %>
-              <% @errors.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5 text-center">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sign Up</h5>
+          <% if @user.errors.any? %>
+            <% @errors.each do |message| %>
+              <li><%= message %></li>
             <% end %>
-            <%= render '/users/form' %><br>
-            <a href="<%= root_path %>">BACK</a>
-          </div>
+          <% end %>
+          <%= render '/users/form' %><br>
+          <a href="<%= root_path %>">BACK</a>
         </div>
       </div>
     </div>
   </div>
+</div>

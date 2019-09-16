@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       @user.google_token = auth.credentials.token
       redirect_to root_path
-    elsif
-      @user = User.find_by(username: params[:user][:username])
+    elsif @user = User.find_by(username: params[:user][:username])
       authenticated = @user.authenticate(params[:user][:password])
       if authenticated
         session[:user_id] = @user.id
@@ -33,6 +32,6 @@ class SessionsController < ApplicationController
   end
 
   def auth
-    request.env['omniauth.auth']
+    request.env["omniauth.auth"]
   end
 end
