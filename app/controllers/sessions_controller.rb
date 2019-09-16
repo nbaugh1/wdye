@@ -19,8 +19,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(@user)
       end
     else
-      
-      render :new
+      render :fail
     end
   end
 
