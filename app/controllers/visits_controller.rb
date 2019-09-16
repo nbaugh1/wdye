@@ -23,7 +23,6 @@ class VisitsController < ApplicationController
     @visit = Visit.create(visit_params)
     @visit.save
     session[:restaurant_id] = nil
-    binding.pry
     redirect_to visit_path(@visit)
   end
 
