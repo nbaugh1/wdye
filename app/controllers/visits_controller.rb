@@ -29,6 +29,12 @@ class VisitsController < ApplicationController
 
   def edit
     
+  end 
+   
+  def destroy
+    @visit = Visit.find([:id])
+    @visit.destroy
+    redirect_to root_path
   end
 
   private
