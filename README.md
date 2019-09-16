@@ -18,7 +18,7 @@ Gems used include:
 
 This app also uses the Yelp API 
 
-* This requires a private access key known only to me and Google. For insider access contact me at nbaugh1@gmail.com or just @nbaugh1 on most internet things. * 
+*This requires a private access key known only to me and Google. For insider access contact me at nbaugh1@gmail.com or just @nbaugh1 on most internet things.* 
 
 
 ## Installation 
