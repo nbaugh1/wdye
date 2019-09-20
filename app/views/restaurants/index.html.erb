@@ -1,7 +1,12 @@
 <ul>
   <% @restaurants.each do |restaurant| %>
     <li>
-      <%= restaurant.name %> - <%= restaurant.location %>
+      <%= restaurant.name %>
     </li>
   <% end %>
+  <% @yelp_results.each do |result| %>
+  <li>
+    <%= result["name"] %>
+  <% end %>
+  </li>
 </ul>

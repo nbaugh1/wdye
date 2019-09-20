@@ -4,9 +4,10 @@
   <p class="lead">This app help you keep track of where you've eaten. You can also write a brief review or desricption of the place (but keep it short!)</p>
   <hr class="my-4">
   <p>More stuff here </p>
-  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#searchModal">
-  Search for your restaurant!
-</button>
+  <%= form_tag restaurants_path, method: :get do %> 
+  <%= text_field_tag :term, params[:term] %><br><br>
+  <%= submit_tag "Search Restaurants" %>
+  <% end %>
 </div>
 
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
