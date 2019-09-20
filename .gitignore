@@ -38,3 +38,6 @@ NOTES.md
 
 # Ignore .env file
 .env
+
+# Ignore jumobtron working file
+~_jumbotron.html.erb
