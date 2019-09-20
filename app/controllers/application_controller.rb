@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  # def jumbotron_dispaly
+  #   if session[:restaurant_id] == nil
+  #     render 'layout/start_new_visit'
+  #   elsif 
+
+  # end
 end
