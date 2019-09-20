@@ -4,4 +4,6 @@ module ApplicationHelper
             render 'layouts/nav_bar'
         end
     end
+
+    
 end
