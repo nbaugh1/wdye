@@ -1,12 +1,25 @@
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li>
-      <%= restaurant.name %>
-    </li>
-  <% end %>
+
+<div class="card">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Location</th>
+      <th scope="col">Select</th>
+    </tr>
+  </thead>
+  <tbody>
+  form_for restaurant_path do 
   <% @yelp_results.each do |result| %>
-  <li>
-    <%= result["name"] %>
+    <tr>
+      <td><%= link_to "#{result["name"]}", restaurants_path %></td>
+      <td><%= result["location"]["display_address"] %></td>
+      <td> <%= check_box_tag "selected_restaurant" %> </td>
+    </tr>
   <% end %>
-  </li>
-</ul>
+  
+  </tbody>
+</table>
+  <%= submit_tag "select" %>
+</div>
+

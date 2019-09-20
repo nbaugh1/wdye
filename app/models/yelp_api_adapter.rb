@@ -10,7 +10,7 @@ class YelpApiAdapter
   DEFAULT_BUSINESS_ID = "ypqK8DWM8Bcs43YveSJnNw"
   DEFAULT_TERM = "dinner"
   DEFAULT_LOCATION = "New York, NY"
-  SEARCH_LIMIT = 15
+  SEARCH_LIMIT = 8
 
   def self.search(term, location = "new york")
     url = "#{API_HOST}#{SEARCH_PATH}"

@@ -10,15 +10,21 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def selected
+    
+  end
+
   def show
     @restaurant = Restaurant.find(params[:id])
   end
 
   def new
     @restaurant = Restaurant.new
+   
   end
 
   def create
+    binding.pry
     @restaurant = find_or_create_from_yelp(params)
   end
 
