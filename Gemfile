@@ -40,7 +40,7 @@ gem 'omniauth-google-oauth2'
 gem 'jwt'
 gem 'omniauth-oauth2'
 gem 'jquery-rails'
-gem 'bootstrap', '~>4.0.0'
+gem 'bootstrap', '~>4.3.1'
 gem 'http'
 gem 'dotenv-rails', groups: [:development, :test]
 
